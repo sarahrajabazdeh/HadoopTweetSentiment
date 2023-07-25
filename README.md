@@ -1,9 +1,10 @@
 # HadoopTweetSentiment
-Data Loading: We loaded the Sentiment140 dataset, assumed to be in CSV format, into a PySpark DataFrame.
+Step Zero: 
+1- Data Loading: We loaded the Sentiment140 dataset, assumed to be in CSV format, into a PySpark DataFrame.
 
-Data Exploration: We checked the DataFrame's schema and displayed the first few rows of data to understand its structure and content.
+2- Data Exploration: We checked the DataFrame's schema and displayed the first few rows of data to understand its structure and content.
 
-Statistical Analysis:
+ Statistical Analysis:
 
 a. Average Tweet Length: Calculated the average length of tweets in the dataset.
 
