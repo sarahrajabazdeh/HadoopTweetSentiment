@@ -19,4 +19,3 @@
 
     Visualization: Utilized Matplotlib for data visualization to create bar charts and a line plot to represent sentiment distribution, sentiment by date, and sentiment by user.
 
-These analyses and visualizations provided insights into sentiment trends, tweet characteristics, and user sentiment variations in the Sentiment140 dataset. You can further refine and expand these analyses based on your research objectives and data exploration requirements.
