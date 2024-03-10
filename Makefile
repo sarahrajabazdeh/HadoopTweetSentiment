@@ -3,6 +3,10 @@ help:
 	@echo "Commands available:"
 	$(printf) "initialization" "Initializes the project directories and copies the file in the Hadoop file system"
 	$(printf) "" "Usage: make initialization path=<path>"
+	$(printf) "test-mapper" "Tests the mapper and reducer scripts with a sample input"
 
 initialization:
 	sh ./shell_scripts/initialization.sh $(path)
+
+test-mapper:
+	echo -e "1\tfoo foo quux labs foo bar\n0\tfoo bar labs" | ./scripts/mapper.py | sort | ./scripts/reducer.py
