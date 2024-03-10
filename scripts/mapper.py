@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """mapper.py"""
 
 import sys 
@@ -14,4 +14,8 @@ for line in sys.stdin:
     tweet = fields[1]
     words = utils.tokenize(tweet)
     for word in words:
+        # Check if the word is a stopword and if it is, then skip it
+        if utils.check_stopword(word): continue
+        # Stem the word
+        word = utils.stem(word)
         print(f'{word}\t1')  

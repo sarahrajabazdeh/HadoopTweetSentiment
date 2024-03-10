@@ -1,5 +1,17 @@
 import numpy as np
 import re
+import nltk
+from nltk.stem import PorterStemmer
+from nltk.corpus import stopwords
+
+# Download the NLTK resources (only once)
+try:
+    _stopwords = set(stopwords.words('english'))
+except:
+    nltk.download('stopwords')
+    _stopwords = set(stopwords.words('english'))
+
+_stopwords = set(stopwords.words('english'))
 
 def cohen_d(x, y):
     """Compute Cohen's d effect size for two groups / columns of a DataFrame.
@@ -49,3 +61,27 @@ def tokenize(tweet):
     tweet = preprocess_tweet(tweet)
     words = tweet.split()
     return words
+
+def stem(word):
+    """Stem a word using the Porter Stemmer algorithm.
+    
+    Args:
+        word: A string representing the word to be stemmed
+    
+    Returns:
+        A string representing the stemmed word
+    """
+    # Implement the Porter Stemmer algorithm
+    ps = PorterStemmer()
+    return ps.stem(word)
+
+def check_stopword(word):
+    """checks if a word is a stopword.
+    
+    Args:
+        word: A string representing the word to be checked
+    
+    Returns:
+        A boolean value indicating whether the word is a stopword
+    """
+    return word in _stopwords
