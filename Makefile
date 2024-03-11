@@ -9,4 +9,7 @@ initialization:
 	sh ./shell_scripts/initialization.sh $(path)
 
 test-mapper:
-	echo -e "1\tfoo foo quux labs foo bar\n0\tfoo bar labs" | ./scripts/mapper.py | sort | ./scripts/reducer.py
+	echo -e "1\tfoo foo labs a is are foo bar\n0\tfoo bar labs" | ./scripts/mapper.py | sort | ./scripts/reducer.py
+
+hadoop-mapper:
+	sh ./shell_scripts/hadoop_mapper.sh
