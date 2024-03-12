@@ -16,7 +16,6 @@ if [ ! -f "$file_path" ]; then
 fi
 
 # This script is used to initialize the HDFS file system
-
 hadoop fs -test -d $default_dir/data || hadoop fs -mkdir $default_dir/data
 hadoop fs -test -d $default_dir/data/kaggle || hadoop fs -mkdir $default_dir/data/kaggle
 hadoop fs -test -d $default_dir/data/processed || hadoop fs -mkdir $default_dir/data/processed
