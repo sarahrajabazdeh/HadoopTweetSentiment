@@ -10,5 +10,5 @@ def setup_database():
     """
     
     mongo = MongoClient()
-    db = mongo.mydb
+    db = mongo.ds_project
     return db, mongo
