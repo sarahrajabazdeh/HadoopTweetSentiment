@@ -37,4 +37,4 @@ We used the following dataset for this project:
 [Kaggle - Sentiment140 Dataset with 1.6 million tweets](https://www.kaggle.com/datasets/kazanova/sentiment140/data)
 
 ## Flow Diagram
-<a href="https://ibb.co/kqwW9vk"><img src="https://i.ibb.co/44X5Y39/Screenshot-from-2024-03-12-05-10-13.png" alt="Screenshot-from-2024-03-12-05-10-13" border="0"></a>
+<a href="https://ibb.co/DDJJ5vf"><img src="https://i.ibb.co/pv77JMj/flowdiagram.jpg" alt="flowdiagram" border="0"></a>
