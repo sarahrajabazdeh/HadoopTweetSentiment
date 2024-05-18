@@ -85,3 +85,31 @@ def check_stopword(word):
         A boolean value indicating whether the word is a stopword
     """
     return word in _stopwords
+
+def cohen_d_spark(df1, df2, col_x, col_y):
+    """Compute Cohen's d effect size for two groups / columns of a DataFrame.
+    
+    Check out the following link for more information:
+    https://en.wikipedia.org/wiki/Effect_size#Cohen's_d
+
+    This function is scalable because it uses Spark DataFrames aggregation functions to compute the necessary statistics.
+
+    Args:
+        df1: The first group / DataFrame containing the samples
+        df2: The second group / DataFrame containing the samples
+        col_x: The column name of the first group
+        col_y: The column name of the second group
+
+    Returns:
+        The value of Cohen's d effect size
+    """
+    mean_x = df1.agg({col_x: "avg"}).collect()[0][0]
+    mean_y = df2.agg({col_y: "avg"}).collect()[0][0]
+    mean_diff = mean_x - mean_y
+    nx = df1.filter(df1[col_x].isNotNull()).count()
+    ny = df2.filter(df2[col_y].isNotNull()).count()
+    std_x = df1.agg({col_x: "stddev"}).collect()[0][0]
+    std_y = df2.agg({col_y: "stddev"}).collect()[0][0]
+    dof = nx + ny - 2
+    pooled_std = np.sqrt(((nx-1)*(std_x**2) + (ny-1)*(std_y**2)) / dof)
+    return mean_diff / pooled_std
