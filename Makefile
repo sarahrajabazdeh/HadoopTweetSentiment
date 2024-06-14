@@ -8,6 +8,8 @@ help:
 	$(printf) "hadoop-mapper" "Runs the mapper and reducer scripts in the Hadoop file system"
 	$(printf) "top-10-words" "Runs the MongoDB query to get the top 10 words"
 	$(printf) "top-10-luw-gt-4-lte-7" "Runs the MongoDB query to get the top 10 words with length > 4 and <= 7"
+	$(printf) "dump-tweets" "Dumps the tweets and dictionary collection in the MongoDB"
+	$(printf) "restore-tweets" "Restores the tweets and dictionary collection in the MongoDB"
 
 initialization:
 	sh ./shell_scripts/initialization.sh $(path)
@@ -23,3 +25,9 @@ top-10-words:
 
 top-10-luw-gt-4-lte-7:
 	mongo ./mongodb_queries/top_10_luw.js --quiet
+
+dump-database:
+	mongodump --db ds_project --out ./data/ds_project
+
+restore-database:
+	mongorestore --drop --nsInclude "ds_project.*" ./data/ds_project
