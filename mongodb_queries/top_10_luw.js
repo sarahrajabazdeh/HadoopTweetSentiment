@@ -20,7 +20,7 @@ var top10LUW = db.dictionary.aggregate([
         }
     },
 
-    // Sort by count in descending order
+    // Sort by count in ascending order
     {$sort: {count: 1}},
     
     // Limit to the top 10 documents
