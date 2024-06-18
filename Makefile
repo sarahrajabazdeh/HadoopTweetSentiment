@@ -10,6 +10,7 @@ help:
 	$(printf) "top-10-luw-gt-4-lte-7" "Runs the MongoDB query to get the top 10 words with length > 4 and <= 7"
 	$(printf) "dump-tweets" "Dumps the tweets and dictionary collection in the MongoDB"
 	$(printf) "restore-tweets" "Restores the tweets and dictionary collection in the MongoDB"
+	$(printf) "count-class" "Runs the MongoDB query to get the count of each class"
 
 initialization:
 	sh ./shell_scripts/initialization.sh $(path)
@@ -31,3 +32,6 @@ dump-database:
 
 restore-database:
 	mongorestore --drop --nsInclude "ds_project.*" ./data/ds_project
+	
+count-class:
+	mongo ./mongodb_queries/count_class.js --quiet	
