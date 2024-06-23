@@ -6,7 +6,6 @@ from collections import Counter
 
 previous = None
 sum = 0
-word_count = Counter()
 
 for line in sys.stdin:
     # Remove leading and trailing whitespace
@@ -25,4 +24,4 @@ for line in sys.stdin:
     sum += int(count)
 
 if previous is not None:
-    print(f'{previous}\t{count}')
+    print(f'{previous}\t{sum}')
